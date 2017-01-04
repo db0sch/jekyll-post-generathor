@@ -15,31 +15,38 @@ At some point, I might add option to add categories straight into the command li
 
 ### Thor (system) installation
 
-Install the Thor gem:
+This installation is useful if you have several Jekyll project and you want to benefit from this post generator script for all of them.
 
-```gem install thor```
+Install the Thor gem:
+```
+$ gem install thor
+```
 
 Clone this repo on your computer:
+```
+$ git clone git@github.com:db0sch/jekyll-post-generathor.git
+```
 
-``` git clone git@github.com:db0sch/jekyll-post-generathor.git ```
-
-Go inside the jekyll-post-generathor folder:
-
-`cd jekyll-post-generathor`
+Go inside the jekyll-post-generathor folder: `cd jekyll-post-generathor`
 
 Ask thor to install this script in your system:
-
-```thor install jekyll_post.thor```
+```
+$ thor install jekyll_post.thor
+```
 
 Thor will print out the script code, and will ask you:
 
-```Do you wish to continue [y/N]?```
+```
+Do you wish to continue [y/N]?
+```
 
 Just enter `y` + press Return/Enter
 
 It will ask you to specify the name of this script in the system:
 
-```Please specify a name for jekyll_post.thor in the system repository [jekyll_post.thor]:```
+```
+Please specify a name for jekyll_post.thor in the system repository [jekyll_post.thor]:
+```
 
 You can choose: `jekyll_post`
 
@@ -48,17 +55,40 @@ The script is installed in your system thanks to Thor.
 
 Now, from any folder, you can just use this command:
 
-```thor jekyll_post:new <your blog post name>```
+```
+$ thor jekyll_post:new <your blog post name>
+```
 
 example:
 
-```thor jekyll_post:new My super Blog post```
+```
+$ thor jekyll_post:new My super Blog post title
+```
 
 will create the following file:
 
-```_posts/2017-01-04-my-super-blog-post.markdown```
+```
+_posts/2017-01-04-my-super-blog-post-title.markdown
+```
 
 (if the `_posts/` directory exist, otherwise, it will abort the script.)
 
 
-###
+### Project basis installation
+
+In your Jekyll project, add the following to your Gemfile:
+
+```
+gem 'thor'
+gem 'stringex'
+```
+
+Run bundle install and add the `jekyll_post.thor` file from this repo, to your jekyll project root folder.
+(you can simply create yourself the file jekyll_post.thor and copy/past the code available [here](https://raw.githubusercontent.com/db0sch/jekyll-post-generathor/master/jekyll_post.thor))
+
+The script is now installed for this specific jekyll project.
+
+Use the new command:
+```
+$ thor jekyll:new My super Blog post title
+```
